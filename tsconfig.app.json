@@ -20,15 +20,26 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    /* Paths and Import Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/ui/*": ["src/ui/*"]
+    },
+
     /* Include custom types */
     "typeRoots": [
-      "./src/types",           // Include custom types (for react-slick)
-      "./node_modules/@types"  // Include default types from node_modules
+      "./src/types",
+      "./node_modules/@types"
     ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/types/**/*.d.ts"  // Ensure custom types are included
+    "src/types/**/*.d.ts"
+  ],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }
