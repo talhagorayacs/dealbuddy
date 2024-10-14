@@ -31,9 +31,9 @@ function App() {
 
   return (
     <>
-      {/* <SignIn/> */}
+      <SignIn/>
       {/* <LoginComponent/> */}
-      <Dashboard/>
+      {/* <Dashboard/> */}
       {/* <ExampleTable data={data}/> */}
       {/* <NotificationPanel/> */}
     </>
