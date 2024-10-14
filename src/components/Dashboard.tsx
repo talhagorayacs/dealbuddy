@@ -51,7 +51,8 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="h-screen flex bg-[#F3F6F9] relative">
-      <div className="w-64 bg-[#405189] text-[#ffffff80] font-poppins flex flex-col">
+      {/* Sidebar */}
+      <div className="w-64 lg:w-72 bg-[#405189] text-[#ffffff80] font-poppins flex flex-col">
         <div className="flex flex-col items-center justify-center py-1">
           <img src={dealbuddy} alt="DealBuddy Logo" className="py-4 z-10" />
         </div>
@@ -60,42 +61,44 @@ const Dashboard: React.FC = () => {
         <div className="mt-6 pl-5">
           <ul className="space-y-4">
             <li className="flex items-center pl-6 py-2 hover:bg-blue-700 cursor-pointer">
-              <img src={dashboardIcon} alt="Dashboard Icon" className="h- w-" />
+              <img src={dashboardIcon} alt="Dashboard Icon" className="h-5 w-5" />
               <span className="ml-3 text-[#ffffff80]">Dashboards</span>
             </li>
             <li className="flex items-center pl-6 py-2 hover:bg-blue-700 cursor-pointer">
-              <img src={transactionsIcon} alt="Transactions Icon" className="h- w-" />
+              <img src={transactionsIcon} alt="Transactions Icon" className="h-5 w-5" />
               <span className="ml-3 text-[#ffffff80]">Transactions</span>
             </li>
             <li className="flex items-center pl-6 py-2 hover:bg-blue-700 cursor-pointer">
-              <img src={vendorsIcon} alt="Vendors Icon" className="h- w-" />
+              <img src={vendorsIcon} alt="Vendors Icon" className="h-5 w-5" />
               <span className="ml-3 text-[#ffffff80]">Vendors</span>
             </li>
             <li className="flex items-center pl-6 py-2 hover:bg-blue-700 cursor-pointer">
-              <img src={subscriptionIcon} alt="Subscription Icon" className="h- w-" />
+              <img src={subscriptionIcon} alt="Subscription Icon" className="h-5 w-5" />
               <span className="ml-3 text-[#ffffff80]">Subscription</span>
             </li>
             <li className="flex items-center pl-6 py-2 hover:bg-blue-700 cursor-pointer">
-              <img src={stepsIcon} alt="Steps Icon" className="h- w-" />
+              <img src={stepsIcon} alt="Steps Icon" className="h-5 w-5" />
               <span className="ml-3 text-[#ffffff80]">Steps</span>
             </li>
           </ul>
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="flex-grow flex flex-col">
         <Header onNotificationClick={toggleNotificationPanel} />
 
-        <div className="flex flex-col pt-2 pl-12 bg-gray-100">
-          <h2 className="font-poppins text-[14.77px] text-[#495057]">Overview</h2>
+        <div className="flex flex-col pt-2 pl-4 lg:pl-12 bg-gray-100">
+          <h2 className="font-poppins text-lg text-[#495057]">Overview</h2>
 
-          <button className="flex items-center bg-[#405189] text-white py-1 px-4 rounded-lg mt-2 self-start">
+          <button className="flex items-center bg-[#405189] text-white py-2 px-4 rounded-lg mt-4 lg:self-start">
             <FiFilter className="mr-2" /> {/* Using FiFilter from react-icons */}
             This month
           </button>
 
-          <div className="flex space-x-8 mt-6">
-            <div className="flex flex-col bg-white shadow-md rounded-lg w-72 h-24 p-2 justify-between">
+          {/* Overview Cards */}
+          <div className="flex flex-wrap justify-start space-y-4 lg:space-y-0 lg:space-x-8 mt-6">
+            <div className="flex flex-col bg-white shadow-md rounded-lg w-full lg:w-72 h-24 p-2 justify-between">
               <div className="flex items-start">
                 <div className="bg-[#40518926] rounded-xl h-[42px] w-[42px] flex items-center justify-center mr-4">
                   <img src={activeTransactions} alt="Active Transactions Icon" className="h-[24px] w-[24px]" />
@@ -108,7 +111,7 @@ const Dashboard: React.FC = () => {
               <span className="text-sm text-[#01B39C] mt-1 pl-12">Until this month</span>
             </div>
 
-            <div className="flex flex-col bg-white shadow-md rounded-lg w-72 h-24 p-2 justify-between">
+            <div className="flex flex-col bg-white shadow-md rounded-lg w-full lg:w-72 h-24 p-2 justify-between">
               <div className="flex items-start">
                 <div className="bg-[#40518926] rounded-xl h-[42px] w-[42px] flex items-center justify-center mr-4">
                   <img src={people} alt="Closed Transactions Icon" className="h-[24px] w-[24px]" />
@@ -121,7 +124,7 @@ const Dashboard: React.FC = () => {
               <span className="text-sm text-[#01B39C] mt-1 pl-12">Until this month</span>
             </div>
 
-            <div className="flex flex-col bg-white shadow-md rounded-lg w-72 h-24 p-2 justify-between">
+            <div className="flex flex-col bg-white shadow-md rounded-lg w-full lg:w-72 h-24 p-2 justify-between">
               <div className="flex items-start">
                 <div className="bg-[#40518926] rounded-xl h-[42px] w-[42px] flex items-center justify-center mr-4">
                   <img src={activeTasks} alt="Tasks Icon" className="h-[24px] w-[24px]" />
@@ -135,11 +138,13 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-4">
+          {/* Table */}
+          <div className="mt-4 overflow-x-auto">
             <ExampleTable data={data} />
           </div>
         </div>
 
+        {/* Empty space */}
         <div className="flex-grow p-4 bg-gray-100"></div>
 
         {/* Notification Panel */}
